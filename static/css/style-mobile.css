@@ -1,0 +1,444 @@
+/* ==============================
+   移动端优化 - 主要部分
+   ============================== */
+@media (max-width: 768px) {
+    /* 基础调整 */
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        max-width: 100%;
+    }
+
+    main.container.py-4 {
+        margin-top: 60px;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+
+    /* 导航栏优化 */
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .brand-text {
+        font-size: 1.1rem;
+    }
+
+    /* 主题切换按钮 - 修复移动端显示 */
+    .btn-theme-circle {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .btn-theme-circle i {
+        font-size: 1rem !important;
+    }
+
+    .nav-controls {
+        gap: 0.5rem;
+    }
+
+    /* 工具栏优化 - 恢复原有样式 */
+    .card.mb-4.glass-card .card-body {
+        padding: 0.75rem;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .toolbar-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+        border-radius: var(--radius-sm);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn i {
+        margin-right: 0.25rem;
+    }
+
+    /* 移动端隐藏工具栏按钮文本，只显示图标 */
+    .toolbar-buttons .btn span {
+        display: none;
+    }
+
+    .toolbar-buttons .btn i {
+        margin-right: 0;
+        font-size: 1rem;
+    }
+
+    /* 搜索框优化 */
+    .search-container {
+        max-width: 100%;
+        width: 100%;
+        order: 2;
+        margin-top: 0.5rem;
+    }
+
+    .search-container .input-group-text {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .search-input {
+        display: block !important;
+        flex: 1;
+        min-width: 0;
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    /* 移动端搜索框显示调整 */
+    .search-input::placeholder {
+        font-size: 0.8rem;
+    }
+
+    /* 面包屑导航优化 */
+    .breadcrumb {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+        overflow-x: auto;
+    }
+
+    .breadcrumb-item a {
+        font-size: 0.75rem;
+        gap: 0.25rem;
+    }
+
+    /* 文件网格视图优化 */
+    .file-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .file-item {
+        height: 140px;
+        padding: 1rem 0.5rem;
+        border-radius: var(--radius-sm);
+    }
+
+    .file-icon i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .file-name {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .file-details {
+        font-size: 0.65rem;
+        flex-direction: column;
+        gap: 0.125rem;
+    }
+
+    .file-modified {
+        display: none;
+    }
+
+    .file-overlay {
+        display: none;
+    }
+
+    /* 文件复选框优化 - 移动端始终显示 */
+    .file-checkbox {
+        opacity: 1 !important;
+        top: 8px;
+        left: 8px;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+    .file-checkbox .form-check-input {
+        width: 24px;
+        height: 24px;
+        border-width: 2px;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+    .file-item.selected .file-checkbox .form-check-input {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    /* 卡片头部优化 */
+    .card-header {
+        padding: 0.75rem;
+    }
+
+    .card-header h5 {
+        font-size: 0.95rem;
+    }
+
+    #fileCount {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        margin-left: 0.25rem;
+    }
+
+    /* 移动端文件项选中状态 */
+    .file-item.selected {
+        border: 2px solid var(--primary);
+        background: rgba(164, 226, 198, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(164, 226, 198, 0.2);
+    }
+
+    /* 批量操作工具栏优化 */
+    .batch-toolbar {
+        bottom: 10px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius);
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+        width: auto;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark-theme .batch-toolbar {
+        background: rgba(26, 43, 74, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .batch-toolbar-info {
+        font-size: 0.75rem;
+        margin-right: 0.5rem;
+        flex: 0 0 auto;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 0.25rem;
+        max-width: 80px;
+    }
+
+    .select-all-container {
+        padding: 0.25rem 0.5rem;
+        margin-right: 0;
+        min-width: auto;
+        flex-shrink: 0;
+    }
+
+    .select-all-label {
+        font-size: 0.7rem;
+        display: none;
+    }
+
+    .batch-toolbar-actions {
+        display: flex;
+        gap: 0.25rem;
+        flex-shrink: 0;
+    }
+
+    .batch-toolbar-actions .btn {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        min-width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    /* 批量操作工具栏按钮文本隐藏 */
+    .batch-toolbar-actions .btn span {
+        display: none !important;
+    }
+
+    .batch-toolbar-actions .btn i {
+        margin-right: 0 !important;
+        font-size: 1rem;
+    }
+
+    /* 隐藏选择所有文本 */
+    .select-all-label {
+        display: none;
+    }
+
+    .select-all-container {
+        padding: 0.25rem;
+        min-width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 文件操作按钮文本隐藏 */
+    .file-actions .btn span {
+        display: none;
+    }
+
+    .file-actions .btn i {
+        margin-right: 0;
+        font-size: 0.9rem;
+    }
+
+    /* 移动端特殊：父文件夹项没有复选框 */
+    .file-item.parent .file-checkbox {
+        display: none;
+    }
+
+    /* ==============================
+       上传弹窗中的按钮优化 - 重点修复
+       ============================== */
+    #uploadModal .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+
+    #uploadModal .modal-content {
+        border-radius: var(--radius-lg);
+    }
+
+    #uploadModal .modal-body {
+        padding: 1rem;
+    }
+
+    /* 上传弹窗中的按钮容器 */
+    #uploadModal .d-flex.gap-2.justify-content-center {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    /* 上传弹窗中的按钮样式 */
+    #uploadModal #selectFilesBtn,
+    #uploadModal #selectFolderBtn {
+        min-width: 120px;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: var(--radius);
+        background: var(--gradient-primary);
+        border: none;
+        color: white;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    /* 深色主题下的上传弹窗按钮 */
+    body.dark-theme #uploadModal #selectFilesBtn,
+    body.dark-theme #uploadModal #selectFolderBtn {
+        background: var(--gradient-primary);
+        box-shadow: 0 4px 15px rgba(0, 47, 167, 0.3);
+    }
+
+    #uploadModal #selectFilesBtn:hover,
+    #uploadModal #selectFolderBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* 移动端上传弹窗按钮文字显示 */
+    #uploadModal #selectFilesBtn span,
+    #uploadModal #selectFolderBtn span {
+        display: inline !important;
+        font-size: 0.85rem;
+    }
+
+    #uploadModal #selectFilesBtn i,
+    #uploadModal #selectFolderBtn i {
+        font-size: 1rem;
+        margin-right: 0.25rem;
+    }
+
+    /* 上传区域优化 */
+    #uploadModal .drop-area {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #uploadModal .upload-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    #uploadModal .drop-area h5 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #uploadModal .drop-area p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    /* 移动端滚动条优化 - 恢复到之前的样式 */
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--surface-secondary);
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--gradient-primary);
+        border-radius: 3px;
+        transition: var(--transition);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--gradient-primary-light);
+    }
+}
